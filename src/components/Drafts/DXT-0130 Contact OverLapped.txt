@@ -1,0 +1,33 @@
+import React from 'react';
+import CtaButtonOrange from '../ctaButtonOrange';
+import IconSocials from '../iconSocials';
+
+const Contact: React.FC = () => {
+    return (
+        <section id='contact' data-nav-bg="light" className="relative pt-5">
+            <div className='container bg-hero-color mx-auto h-[380px] md:rounded-[40px] p-5 md:p-10 flex items-center bg-contact-gradient text-white'>
+                <div className='p-5 left-side justify-between flex flex-col gap-10 md:gap-20 z-10 w-full'>
+                    <div className='headline+description flex flex-col gap-5'>
+                        <h1 className='text-2xl sm:text-2xl md:text-3xl font-semibold bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent'>
+                            Interested in working together or just want to say hi?
+                        </h1>
+                        <h3 className='font-extralight italic text-xl'>Feel free to reach out — and check out my other socials below.</h3>
+                    </div>
+                    <div className='socials flex gap-3'>
+                        <CtaButtonOrange text="Let's Chat"/>
+                        <IconSocials image='/behance.svg'/>
+                        <IconSocials image='/linkedin.svg'/>
+                        <IconSocials image='/github.svg'/>
+                    </div>
+                </div>
+                
+                {/* Image positioned absolutely to overlap */}
+                <div className='w-full md:block hidden'>
+                    <img src="/OFWakoMockup1.png" alt="Description of image" className='object-cover' />
+                </div>
+            </div>  
+        </section>
+    );
+};
+
+export default Contact;

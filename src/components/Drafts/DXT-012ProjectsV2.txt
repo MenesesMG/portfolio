@@ -1,0 +1,83 @@
+import React from 'react';
+import ProjectFrame from '../ProjectFrame'; 
+
+const DXT012Projects: React.FC = () => {
+    return (
+        <div className="container mx-auto py-10 px-4 sm:px-6 flex flex-col items-center">
+            <h1 className="text-4xl sm:text-4xl md:text-5xl font-semibold header-section-color text-center">
+                Featured Projects
+            </h1>
+
+            <div className="flex flex-col md:grid grid-cols-2 grid-rows-3 gap-4 w-full my-10 md:h-[1082px]">
+                <div className="col-start-1 row-start-1">
+                    <ProjectFrame 
+                        image="OFWAkoImageV1.png" 
+                        imageMobile="OFWAkoImageV1.png" 
+                        imageScale={1.1} 
+                        imageMobileScale={1} 
+                        imagePosition="center" 
+                        imageMobilePosition="center" 
+                        backgroundColor="#f5f5f5" 
+                    />
+                </div>
+                <div className="col-start-1 row-start-2">
+                    <ProjectFrame 
+                        image="/MoodMirrorCover.jpg" 
+                        imageMobile="/MoodMirrorCover.jpg" 
+                        imageScale={1.1} 
+                        imageMobileScale={1} 
+                        imagePosition="center" 
+                        imageMobilePosition="center" 
+                        backgroundColor="#f5f5f5" 
+                    />
+                </div>
+                <div className="col-start-1 row-start-3">
+                    <ProjectFrame 
+                        image="/PlacePerfectCover.jpg" 
+                        imageMobile="/PlacePerfectCover.jpg" 
+                        imageScale={1.1} 
+                        imageMobileScale={1} 
+                        imagePosition="center" 
+                        imageMobilePosition="center" 
+                        backgroundColor="#f5f5f5" 
+                    />
+                </div>
+                <div className="col-start-2 row-start-1">
+                    <ProjectFrame 
+                        image="/1NCLEXImageV1.png" 
+                        imageMobile="/1NCLEXImageV1.png" 
+                        imageScale={1.1} 
+                        imageMobileScale={1} 
+                        imagePosition="center" 
+                        imageMobilePosition="center" 
+                        backgroundColor="#f5f5f5" 
+                    />
+                </div>
+                <div className="col-start-2 row-start-2">
+                    <ProjectFrame 
+                        image="/GameLoopMockupV1.png" 
+                        imageMobile="/GameLoopMockupV1.png" 
+                        imageScale={1.1} 
+                        imageMobileScale={1} 
+                        imagePosition="center" 
+                        imageMobilePosition="center" 
+                        backgroundColor="#f5f5f5" 
+                    />
+                </div>
+                <div className="col-start-2 row-start-3">
+                    <ProjectFrame 
+                        image="/PortoflioCover.jpg" 
+                        imageMobile="/PortoflioCover.jpg" 
+                        imageScale={1.1} 
+                        imageMobileScale={1} 
+                        imagePosition="center" 
+                        imageMobilePosition="center" 
+                        backgroundColor="#f5f5f5" 
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default DXT012Projects;
