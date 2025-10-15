@@ -23,7 +23,7 @@ const DXT011Hero: React.FC = () => {
               I'm Marcelo
             </motion.h1>
             <img
-              src="/marcelo-icon.png"
+              src="/portfolio/marcelo-icon.png"
               alt="Picture of Marcelo"
               className="h-15 sm:h-12 md:h-16 rotate-[5deg] animate-bounce"
             />
