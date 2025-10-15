@@ -5,6 +5,13 @@ import GlassBadge from '../GlassBadge';
 import AnimatedClouds from '../AnimatedClouds';
 import IconSocials from '../iconSocials';
 
+// Helper to prefix /portfolio for public assets
+const getImagePath = (path: string) => {
+  if (path.startsWith('/portfolio/')) return path;
+  if (path.startsWith('/')) return `/portfolio${path}`;
+  return `/portfolio/${path}`;
+};
+
 // Animation variants for better performance
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -35,7 +42,7 @@ const DXT021Hero: React.FC = () => {
         <div className="relative w-full md:flex-1 max-w-[200px] md:max-w-none md:order-2 order-1 mt-20 md:mt-0">
           <div className="relative rotate-0 md:rotate-5 max-w-md lg:max-w-lg mx-auto">
             <img 
-              src="/Hero/SideImage.jpg" 
+              src={getImagePath('/Hero/SideImage.jpg')} 
               alt="Marcelo - Designer and Developer" 
               className="w-full h-auto object-cover rounded-[30px] relative z-10"
               loading="lazy"
@@ -77,7 +84,7 @@ const DXT021Hero: React.FC = () => {
                 {socials.map((social) => (
                   <IconSocials 
                     key={social.alt}
-                    image={social.image}
+                    image={getImagePath(social.image)}
                     href={social.href}
                   />
                 ))}                

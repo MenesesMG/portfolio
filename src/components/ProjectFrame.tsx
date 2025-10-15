@@ -24,19 +24,24 @@ const ProjectFrame: React.FC<ProjectFrameProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  // 🔹 Handle fade-in
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => setIsVisible(true), 10); // slight delay to trigger transition
+      setTimeout(() => setIsVisible(true), 10);
     } else {
       setIsVisible(false);
     }
   }, [isOpen]);
 
-  // 🔹 Fade-out before closing modal
   const handleClose = () => {
     setIsVisible(false);
-    setTimeout(() => setIsOpen(false), 400); // matches duration-500 transition
+    setTimeout(() => setIsOpen(false), 400);
+  };
+
+  // 🔹 Your original getImagePath method
+  const getImagePath = (path: string) => {
+    if (path.startsWith("/portfolio/")) return path;
+    if (path.startsWith("/")) return `/portfolio${path}`;
+    return `/portfolio/${path}`;
   };
 
   return (
@@ -64,7 +69,7 @@ const ProjectFrame: React.FC<ProjectFrameProps> = ({
         >
           <div className="image-container relative w-full h-[250px] flex items-center justify-center mx-auto">
             <img
-              src={imageMobile || image}
+              src={getImagePath(imageMobile || image)}
               alt={title}
               className="max-h-full w-auto object-contain"
             />
@@ -121,12 +126,12 @@ const ProjectFrame: React.FC<ProjectFrameProps> = ({
 
             {/* Full Image */}
             <img
-              src={modalImage || imageMobile || image}
+              src={getImagePath(modalImage || imageMobile || image)}
               alt={title}
               className="w-full h-full object-contain bg-black"
             />
 
-            {/* Gradient Overlay with Text */}
+            {/* Gradient Overlay */}
             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-10 text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
               <div className="z-10">
                 <h3 className="text-sm font-light mb-1">{type}</h3>

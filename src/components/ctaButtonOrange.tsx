@@ -6,6 +6,13 @@ interface CtaButtonProps {
 }
 
 const CtaButton: React.FC<CtaButtonProps> = ({ text = "Contact", className = '' }) => {
+
+  const getImagePath = (path: string) => {
+    if (path.startsWith('/portfolio/')) return path;
+    if (path.startsWith('/')) return `/portfolio${path}`;
+    return `/portfolio/${path}`;
+  };
+
   return (
     <a href="https://www.linkedin.com/in/menesesmg/" target="_blank" rel="noopener noreferrer">
       <button
@@ -27,7 +34,7 @@ const CtaButton: React.FC<CtaButtonProps> = ({ text = "Contact", className = '' 
             <span className="relative z-10 font-['Poppins:Bold',_sans-serif] leading-[20px] not-italic shrink-0 text-[14px] text-center text-nowrap text-white tracking-[-0.8px] whitespace-pre">
               {text}
             </span>
-            <img src="/arrowright.svg" alt="Arrow Right" className="inline-block w-auto h-auto" />
+            <img src={getImagePath('/arrowright.svg')} alt="Arrow Right" className="inline-block w-auto h-auto" />
           </div>
         </div>
         <div

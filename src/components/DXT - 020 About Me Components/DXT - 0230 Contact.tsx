@@ -3,9 +3,17 @@ import CtaButtonOrange from '../ctaButtonOrange';
 import IconSocials from '../iconSocials';
 
 const DCT0230Contact: React.FC = () => {
+
+    // Helper to prefix /portfolio for public assets
+    const getImagePath = (path: string) => {
+        if (path.startsWith('/portfolio/')) return path;
+        if (path.startsWith('/')) return `/portfolio${path}`;
+        return `/portfolio/${path}`;
+    };
+
     return (
         <section className="container block mx-auto py-40 px-4 sm:px-6 flex flex-col items-center">
-            <div className="w-full bg-about-hero-color  md:rounded-[40px] max-h-[450px] p-5 md:p-10 flex flex-col md:flex-row items-center text-white relative overflow-hidden h-[380px] md:h-auto">
+            <div className="w-full bg-about-hero-color md:rounded-[40px] max-h-[450px] p-5 md:p-10 flex flex-col md:flex-row items-center text-white relative overflow-hidden h-[380px] md:h-auto">
                 
                 {/* Left Side: Headline & Socials */}
                 <div className="left-side flex flex-col justify-between gap-10 md:gap-20 z-10 w-full md:w-1/2">
@@ -20,21 +28,20 @@ const DCT0230Contact: React.FC = () => {
 
                     <div className="socials flex gap-3 items-center">
                         <CtaButtonOrange text="Let's Chat" />
-                        <IconSocials image='/behance.svg' href='https://www.behance.net/MenesesMG'/>
-                        <IconSocials image='/linkedin.svg' href='https://www.linkedin.com/in/menesesmg/' />
-                        <IconSocials image='/github.svg' href='https://github.com/MenesesMG'/>
+                        <IconSocials image={getImagePath('/behance.svg')} href='https://www.behance.net/MenesesMG'/>
+                        <IconSocials image={getImagePath('/linkedin.svg')} href='https://www.linkedin.com/in/menesesmg/' />
+                        <IconSocials image={getImagePath('/github.svg')} href='https://github.com/MenesesMG'/>
                     </div>
                 </div>
 
-            {/* Right Side: Image */}
-            <div className="right-side hidden md:flex md:w-1/2 h-full justify-center items-center">
-                <img 
-                    src="/Mockup/Gameloop Mockup1.png" 
-                    alt="Project Mockup" 
-                    className="object-contain h-full max-h-[380px] w-auto"
-                />
-            </div>
-
+                {/* Right Side: Image */}
+                <div className="right-side hidden md:flex md:w-1/2 h-full justify-center items-center">
+                    <img 
+                        src={getImagePath('/Mockup/Gameloop Mockup1.png')} 
+                        alt="Project Mockup" 
+                        className="object-contain h-full max-h-[380px] w-auto"
+                    />
+                </div>
 
             </div>
         </section>

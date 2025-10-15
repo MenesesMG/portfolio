@@ -19,6 +19,13 @@ interface ToolsCardProps {
   socials?: SocialIcon[]; // Accept multiple social icons
 }
 
+// Helper to prefix /portfolio for public assets
+const getImagePath = (path: string) => {
+  if (path.startsWith('/portfolio/')) return path;
+  if (path.startsWith('/')) return `/portfolio${path}`;
+  return `/portfolio/${path}`;
+};
+
 const ToolsCard: React.FC<ToolsCardProps> = ({
   title = "Skill Name",
   description = "This is a brief description of the tool.",
@@ -26,10 +33,11 @@ const ToolsCard: React.FC<ToolsCardProps> = ({
   socials = [],
 }) => {
   return (
-<div className="w-full h-full p-10 relative border rounded-[30px] border-gray-200
+    <div className="w-full h-full p-10 relative border rounded-[30px] border-gray-200
                 hover:scale-[1.01] hover:shadow-[0px_2px_8px_0px_rgba(0,0,0,0.08)]
                 transition duration-500 ease-in-out cursor-pointer
                 flex flex-col justify-between">      
+      
       {/* Title + Description */}
       <div className="title + subheadline flex flex-col gap-[10px]">
         <h3 className="md:text-3xl text-2xl text-gray-700 font-semibold">{title}</h3>
@@ -57,7 +65,7 @@ const ToolsCard: React.FC<ToolsCardProps> = ({
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <img src={icon.image} alt="social icon" className="w-auto"/>
+            <img src={getImagePath(icon.image)} alt="social icon" className="w-auto"/>
           </a>
         ))}
       </div>
