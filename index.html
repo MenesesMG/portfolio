@@ -300,6 +300,23 @@
   .modal-close:hover{background:var(--accent);border-color:var(--accent);transform:rotate(90deg)}
   .modal-fade{position:absolute;left:0;right:0;bottom:0;height:88px;pointer-events:none;z-index:2;border-radius:0 0 26px 26px;background:linear-gradient(180deg,transparent,rgba(10,8,6,.6))}
   .proj.js-modal{cursor:zoom-in}
+  /* ---- mobile: stop the whole-page pulsing / zooming ---- */
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html,body{overflow-x:hidden;max-width:100%}
+  
+  @media (max-width:600px){
+    /* turn off the scaling/breathing animations that make the layout pulse on phones */
+    .orb,.aurora,.beam,.beam.b2,
+    .stats::before,.stats::after,footer::before,
+    .hi-photo .halo,.live-card,.live-card::before{
+      animation:none !important;
+    }
+  }
+  
+  /* respect users who ask their phone to reduce motion */
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important}
+  }
 </style>
 </head>
 <body>
